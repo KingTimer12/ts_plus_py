@@ -8,11 +8,11 @@ def create_restapi(project: str):
     project_path = os.path.join(PATH, project)
     if not os.path.exists(project_path):
         os.makedirs(project_path)
-        subprocess.run(['pnpm', 'init', '--y'], capture_output=True, text=True)
-        subprocess.run(['pnpm', 'i', 'express'], capture_output=True, text=True)
     try:
         # Mudar para o diretório especificado
         os.chdir(project_path)
+        subprocess.run(['pnpm', 'init', '--y'], capture_output=True, text=True)
+        subprocess.run(['pnpm', 'i', 'express'], capture_output=True, text=True)
 
         rest_code = f"""
 const express = require('express');
